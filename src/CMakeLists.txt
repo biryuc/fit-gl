@@ -1,8 +1,20 @@
-# For Qt
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
-set(CMAKE_AUTOUIC ON)
+set(TASK-1_SRCS
+        main.cpp
+        CubeWindow.cpp
+        CubeWindow.hpp
 
-add_subdirectory(Base)
-add_subdirectory(Lesson1)
+        shaders.qrc
+        Shaders/square.fs
+        Shaders/square.vs
+        )
+
+find_package(Qt5 COMPONENTS Widgets REQUIRED)
+
+add_executable(task-1 ${TASK-1_SRCS})
+
+target_link_libraries(task-1
+        PRIVATE
+        Qt5::Widgets
+        FGL::Base
+        )
 
